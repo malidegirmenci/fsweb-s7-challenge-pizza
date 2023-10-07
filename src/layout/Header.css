@@ -1,0 +1,32 @@
+h1 {
+    margin-top:0;
+    padding: 1vw;
+    padding-top:3vw;
+    text-align: center;
+    color:#ffffff;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 3rem;
+}
+.center{
+    display: block;
+    margin: 0 auto;
+}
+.vw37{
+    width: 37vw;
+}
+
+.header-container{
+    background: #CE2829;
+    width: 100vw;
+}
+
+.navigation-links{
+    padding-bottom: 1rem;
+}
+
+.navigation-links a,
+.navigation-links a:visited,
+.navigation-links a:hover{
+    text-decoration: none;
+    color:#ffffff;
+}

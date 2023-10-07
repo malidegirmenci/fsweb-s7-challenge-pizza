@@ -1,34 +1,12 @@
 import React from "react";
 import "./OrderForm.css";
+import Product from "./components/Product";
 export default function OrderForm(props) {
+    const {data} = props;
     return (
         <div className="order-form-container ">
-            <div className="center header-container ">
-                <header>
-                    <h1>Teknolojik Yemekler</h1>
-                    <nav className="center vw37 navigation-links ">
-                        <a href="#">Anasayfa - </a>
-                        <a href="#">Seçenekler - </a>
-                        <a href="#"><b>Sipariş Oluştur</b></a>
-                    </nav>
-                </header>
-            </div>
             <div className="flex  column vw37 order-form">
-                <div className="product-name-area">
-                    <h2>Position Absolute Acı Pizza</h2>
-                </div>
-                <div className="flex space-b price-rate-amount-area">
-                    <div className="price">
-                        <p>85.50₺</p>
-                    </div>
-                    <div className="flex opacity rate-amount">
-                        <p>4.9</p>
-                        <p>(200)</p>
-                    </div>
-                </div>
-                <div className="opacity description">
-                    <p>Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizatta denir.</p>
-                </div>
+                <Product data={data}/>
                 <form className="flex column gap-2">
                     <div className="flex row psize-pdough-area">
                         <div className="flex column gap-1">
@@ -142,7 +120,6 @@ export default function OrderForm(props) {
                 </form>
             </div>
             <div className="footer">
-
             </div>
         </div>
     )
