@@ -1,9 +1,9 @@
 import React from "react";
-
+import OrderForm from "./pages/orderForm/OrderForm";
 const App = () => {
   return (
     <>
-      <p>TEKNOLOJİK YEMEKLER</p>
+      <OrderForm>Test</OrderForm>
     </>
   );
 };
