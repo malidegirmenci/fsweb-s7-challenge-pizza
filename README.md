@@ -48,10 +48,10 @@ Proje iki zorluk aşamalı,
 
 ### Görev 1: Proje Kurulumu
 
-- [ ] Forklayarak bir kopya oluşturun
-- [ ] Forku klonlayın
-- [ ] Main branch üzerinde çalışın
-- [ ] Comitinizi pushlayın: `git push origin main`
+- [X] Forklayarak bir kopya oluşturun
+- [X] Forku klonlayın
+- [X] Main branch üzerinde çalışın
+- [X] Comitinizi pushlayın: `git push origin main`
 - `axios`
 - `yup`
 - `toastify`
