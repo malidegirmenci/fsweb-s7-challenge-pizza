@@ -105,7 +105,9 @@ hr{
     width: 100%;
     margin-bottom:1rem;
 }
-
+.option{
+    flex-basis: 30%;
+}
 .order-amount{
     width: 30%;
     justify-content: center;

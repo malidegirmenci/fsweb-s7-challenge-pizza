@@ -1,11 +1,10 @@
 import React from "react";
 import "./OrderForm.css";
 import Product from "./components/Product";
+import { ExtraOptionsData } from "../../data/ExtraOptionsData";
 import { useState } from "react";
 import { useEffect } from "react";
-/* TODO LİST
-    [ ] Checkboxları componente çevir
-*/
+
 export default function OrderForm(props) {
     const [extraOptions, setExtraOptions] = useState([]);
 
@@ -103,54 +102,13 @@ export default function OrderForm(props) {
                         <h3>Ek Malzemeler</h3>
                         <p>En fazla 10 malzeme seçebilirsiniz. Adet: 5₺</p>
                         <div className="flex extra-options">
-                            <div className="flex column gap-1">
-                                <label>
-                                    <input type="checkbox" value="Peperoni" onChange={handleCheckboxChange} /> Peperoni
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Sosis" onChange={handleCheckboxChange} /> Sosis
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Kanada Jambonu" onChange={handleCheckboxChange} /> Kanada Jambonu
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Tavuk Izgara" onChange={handleCheckboxChange} /> Tavuk Izgara
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Soğan" onChange={handleCheckboxChange} /> Soğan
-                                </label>
-                            </div>
-                            <div className="flex column gap-1">
-                                <label>
-                                    <input type="checkbox" value="Domates" onChange={handleCheckboxChange} /> Domates
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Mısır" onChange={handleCheckboxChange} /> Mısır
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Sucuk" onChange={handleCheckboxChange} /> Sucuk
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Jalepeno" onChange={handleCheckboxChange} /> Jalepeno
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Sarımsak" onChange={handleCheckboxChange} /> Sarımsak
-                                </label>
-                            </div>
-                            <div className="flex column gap-1">
-                                <label>
-                                    <input type="checkbox" value="Biber" onChange={handleCheckboxChange} /> Biber
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Sucuk" onChange={handleCheckboxChange} /> Sucuk
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Ananas" onChange={handleCheckboxChange} /> Ananas
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Kabak" onChange={handleCheckboxChange} /> Kabak
-                                </label>
-                            </div>
+                            {ExtraOptionsData.map((option) => {
+                                return (
+                                    <label key={option} className="option">
+                                        <input type="checkbox" value={option} onChange={handleCheckboxChange}/> {option}
+                                    </label>
+                                )
+                            })}
                         </div>
                     </div>
                     <div className="flex column order-note">
