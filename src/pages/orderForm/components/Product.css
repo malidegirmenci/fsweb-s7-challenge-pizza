@@ -1,12 +1,19 @@
 .space-b{
     justify-content: space-between;
 }
+
 .flex{
     display: flex;
 }
+
 .opacity{
     color:rgb(0, 0, 0, 0.5);
 }
+
 .price-rate-amount-area{
     align-items: center;
+}
+
+.rate-comment p{
+    color:black;
 }

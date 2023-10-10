@@ -1,0 +1,45 @@
+/*Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2*/
+/*
+font-family: 'Barlow', sans-serif;
+font-family: 'Londrina Solid', cursive;
+font-family: 'Quattrocento', serif;
+font-family: 'Satisfy', cursive;
+*/
+
+h1 {
+    font-size: 2rem;
+    font-family: 'Londrina Solid', cursive;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 100;
+    letter-spacing: -1px;
+    line-height: 1.5;
+}
+
+.yellow-bg {
+    background: #FDC913;
+    border-width: 0;
+}
+
+.home {
+    background-color: #CE2829;
+    background-image: url('../../Assets/mvp-banner-empty.png');
+    background-position: center;
+    text-align: center;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+.orderPage-button {
+    font-family: 'Barlow', sans-serif;
+    border-radius: 15px;
+    height: 2rem;
+    width: 10rem;
+}
+
+.image-container {
+    margin: 0;
+}

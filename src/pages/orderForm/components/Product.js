@@ -9,11 +9,11 @@ export default function Product(props) {
             </div>
             <div className="flex space-b price-rate-amount-area">
                 <div className="price">
-                    <p>{dataProduct.price}₺</p>
+                    <p>{dataProduct.price.toFixed(2)}₺</p>
                 </div>
-                <div className="flex opacity rate-amount">
+                <div className="flex opacity rate-comment">
                     <p>{dataProduct.rate}</p>
-                    <p>({dataProduct.amount})</p>
+                    <p>({dataProduct.comment})</p>
                 </div>
             </div>
             <div className="opacity description">
