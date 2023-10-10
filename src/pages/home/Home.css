@@ -6,12 +6,14 @@ font-family: 'Quattrocento', serif;
 font-family: 'Satisfy', cursive;
 */
 
-h1 {
+.home h1 {
+    margin-top: 0;
+    padding-top: 1rem;
     font-size: 2rem;
     font-family: 'Londrina Solid', cursive;
 }
 
-h2 {
+.home h2 {
     font-size: 3rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 100;
@@ -19,7 +21,7 @@ h2 {
     line-height: 1.5;
 }
 
-.yellow-bg {
+.home .yellow-bg {
     background: #FDC913;
     border-width: 0;
 }

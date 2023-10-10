@@ -6,7 +6,6 @@ import './Home.css'
 
 export default function Home() {
     let history = useHistory();
-
     const handleClick = () => {
         history.push("/order");
     }

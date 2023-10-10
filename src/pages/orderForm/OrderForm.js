@@ -14,11 +14,11 @@ import "./OrderForm.css";
 const formSchema = Yup.object().shape({
     size: Yup
         .string()
-        .oneOf(["small", "mid", "big"], "Bir pizza boyu seçmelisiniz.")
+        .oneOf(["Küçük", "Orta", "Büyük"], "Bir pizza boyu seçmelisiniz.")
         .required("Pizza boyu seçimi gereklidir."),
     dough: Yup
         .string()
-        .oneOf(["thin", "mid", "thick"], "Bir pizza hamur kalınlığı seçmelisiniz.")
+        .oneOf(["İnce", "Orta", "Kalın"], "Bir pizza hamur kalınlığı seçmelisiniz.")
         .required("Pizza hamuru seçimi gereklidir."),
     extraOptions: Yup
         .array().max(10).of(Yup.string().required("Ekstra malzeme 10 ile sınırlıdır")).required("Ekstra malzeme 10 ile sınırlıdır"),
@@ -38,7 +38,7 @@ export default function OrderForm(props) {
     const [totalPrice, setTotalPrice] = useState(0);
 
     //base data form
-    const [initialData, setInitialData] = useState({
+    const initialData = {
         title: "",
         price: 0,
         description: "",
@@ -46,12 +46,12 @@ export default function OrderForm(props) {
         comment: "",
         size: "",
         dough: "",
-        extraOptions: [],
+        extraOptions: [extraOptions],
         orderNote: "",
         amount:0,
         extraOptionsPrice: "",
         totalPrice: "",
-    })
+    }
 
     const [formData, setFormData] = useState(initialData);
 
@@ -79,7 +79,8 @@ export default function OrderForm(props) {
         } else {
             setExtraOptions([...extraOptions, option])
         }
-        setFormData({ ...formData, extraOptions: [...extraOptions, option] })
+        console.log(extraOptions);
+        setFormData({ ...formData, extraOptions: extraOptions})
     }
 
     //updating datas
@@ -103,7 +104,6 @@ export default function OrderForm(props) {
             ...formData, 
             ...dataProduct,
             amount: counterAmount,
-            extraOptions: [...extraOptions],
             [name]: value
         };
         //console.log("handleChange", newFormData, "target-name", name);
@@ -141,7 +141,6 @@ export default function OrderForm(props) {
         setFormData(initialData);
         history.push("/order/confirmedOrder")
     }
-
     return (
         <div className="order-form-container ">
             <div className="flex  column vw37 order-form">
@@ -151,13 +150,13 @@ export default function OrderForm(props) {
                         <div className="flex column gap-1">
                             <h3>Boyut Seç<span>*</span></h3>
                             <label htmlFor="smallPizzaSize">
-                                <input id="small" type="radio" value="small" checked={formData.size === "small"} name="size" onChange={handleChange} /> Küçük
+                                <input id="Küçük" type="radio" value="Küçük" checked={formData.size === "Küçük"} name="size" onChange={handleChange} /> Küçük
                             </label>
                             <label htmlFor="midPizzaSize">
-                                <input id="mid" type="radio" value="mid" checked={formData.size === "mid"} name="size" onChange={handleChange} /> Orta
+                                <input id="Orta" type="radio" value="Orta" checked={formData.size === "Orta"} name="size" onChange={handleChange} /> Orta
                             </label>
                             <label htmlFor="bigPizzaSize">
-                                <input id="big" type="radio" value="big" checked={formData.size === "big"} name="size" onChange={handleChange} /> Büyük
+                                <input id="Büyük" type="radio" value="Büyük" checked={formData.size === "Büyük"} name="size" onChange={handleChange} /> Büyük
                             </label>
                         </div>
                         <div className="flex column gap-1 right-margin">
@@ -165,15 +164,13 @@ export default function OrderForm(props) {
                             <div className="pdough">
                                 <select id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
                                     <option value="doughThickness" selected> Hamur Kalınlığı</option>
-                                    <option selected={formData.dough === "thin"} value="thin" name="dough"> İnce</option>
-                                    <option selected={formData.dough === "mid"} value="mid" name="dough"> Orta</option>
-                                    <option selected={formData.dough === "thick"} value="thick" name="dough"> Kalın</option>
+                                    <option selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
+                                    <option selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
+                                    <option selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
                                 </select>
                             </div>
                         
                         </div>
-                        <p >{errors.size}</p>
-                        <p >{errors.dough}</p>
                     </div>
                     <div className="flex column">
                         <h3>Ek Malzemeler</h3>
@@ -187,7 +184,6 @@ export default function OrderForm(props) {
                                 )
                             })}
                         </div>
-                        <p >{errors.extraOptions}</p>
                     </div>
                     <div className="flex column order-note">
                         <h3>Sipariş Notu</h3>

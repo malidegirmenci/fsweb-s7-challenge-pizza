@@ -1,28 +1,59 @@
 .order-confirmation-container{
-    justify-content: center;
+    background-color: #CE2829;
+    color:white;
+    min-height: 100vh;
+}
+.order-confirmation{
+    margin:0 auto;
     align-items: center;
 }
-h1 {
-    flex-basis: 30%;
-    font-size: 2rem;
+.order-confirmation h1{
     font-family: 'Londrina Solid', cursive;
 }
 
-.order-confirmation-container p {
-    flex-basis: 70%;
-    flex-grow: 1;
+.onTheWayMsg{
+    color:#FDC913;
+    font-family: 'Satisfy', cursive;
+    font-weight: 100;
+    margin-bottom: 0;
+}
+.takenOrder{
+    margin-top:0;
+    margin-left:3rem;
     font-size: 4rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 100;
     letter-spacing: -1px;
     line-height: 1;
-    color:white;
-    text-align: center;
-    transform: scaleX(0.6);
+}
+.order-summary{
+    width: 50%;
+}
+.order-summary h3{
+
+    text-align: left;
+    font-weight: 700;
 }
 
-.order-confirmation-container{
-    background-color: #CE2829;
-    width: 100vw;
-    height: 100vh;
+.pizza-info p{
+    margin-top: 0;
+    font-weight: 100;
 }
+.pizza-info{
+    margin-top:3rem;
+    margin-left: 1rem;
+    margin-bottom:3rem;
+}
+.bill{
+    padding: 0 3rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.bill h3{
+    text-align: center;
+}
+
+
+
+

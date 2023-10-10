@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 const App = () => {
   const [order, setOrder] = useState({});
-  const [product, setProduct] = useState(productData[0])
+  const product = productData[0]
 
   const handleOrder = (order) => {
     setOrder(order);
