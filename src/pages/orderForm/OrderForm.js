@@ -21,7 +21,7 @@ const formSchema = Yup.object().shape({
         .oneOf(["İnce", "Orta", "Kalın"], "Bir pizza hamur kalınlığı seçmelisiniz.")
         .required("Pizza hamuru seçimi gereklidir."),
     extraOptions: Yup
-        .array().max(10).of(Yup.string().required("Ekstra malzeme 10 ile sınırlıdır")).required("Ekstra malzeme 10 ile sınırlıdır"),
+        .array().max(10).of(Yup.string()),
 })
 
 export default function OrderForm(props) {
@@ -46,9 +46,9 @@ export default function OrderForm(props) {
         comment: "",
         size: "",
         dough: "",
-        extraOptions: [extraOptions],
+        extraOptions: "",
         orderNote: "",
-        amount:0,
+        amount: 0,
         extraOptionsPrice: "",
         totalPrice: "",
     }
@@ -73,14 +73,19 @@ export default function OrderForm(props) {
 
     // Checkbox listener and data transfer to formData
     const handleExtraOptionsChange = (e) => {
+  
         const option = e.target.value;
+
         if (extraOptions.includes(option)) {
             setExtraOptions(extraOptions.filter((item) => item !== option));
         } else {
             setExtraOptions([...extraOptions, option])
         }
-        console.log(extraOptions);
-        setFormData({ ...formData, extraOptions: extraOptions})
+        console.log("option", option)
+        console.log("extraOptions:", extraOptions);
+      
+
+
     }
 
     //updating datas
@@ -88,20 +93,19 @@ export default function OrderForm(props) {
     useEffect(() => {
         setExtraOptionsPrice((extraOptions.length * optionPrice) * counterAmount);
         setTotalPrice((dataProduct.price.toFixed(2) * counterAmount) + extraOptionsPrice);
-        setFormData({...formData,
-                        extraOptionsPrice:extraOptionsPrice,
-                        totalPrice: totalPrice,
-                        amount:counterAmount
-                    })
+        setFormData({
+            ...formData, extraOptions: extraOptions,
+            extraOptionsPrice: extraOptionsPrice,
+            totalPrice: totalPrice,
+            amount: counterAmount
+        })
     }, [extraOptions, counterAmount, extraOptionsPrice, totalPrice])
 
     //every form element listener and data transfer to formData (without checkboxes)
     const handleChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
+        const { value, name } = e.target
         const newFormData = {
-            ...formData, 
+            ...formData,
             ...dataProduct,
             amount: counterAmount,
             [name]: value
@@ -117,6 +121,7 @@ export default function OrderForm(props) {
                     setErrors({ ...errors, [name]: err.errors[0] })
                 });
         }
+        console.log("name:", name, "value:", value);
         setFormData(newFormData);
     }
 
@@ -169,7 +174,7 @@ export default function OrderForm(props) {
                                     <option selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
                                 </select>
                             </div>
-                        
+
                         </div>
                     </div>
                     <div className="flex column">
