@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Switch } from 'react-router-dom';
 
 import OrderForm from "./pages/orderForm/OrderForm";
-import Header from "./layout/Header";
+
 import Home from "./pages/home/Home";
 import OrderConfirmation from "./pages/orderConfirmation/OrderConfirmation";
 
@@ -28,7 +28,6 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/order">
-          <Header />
           <OrderForm dataProduct={product} handleOrder={handleOrder} />
         </Route>
         <Route exact path="/order/confirmedOrder">

@@ -1,0 +1,119 @@
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding-top:3rem;
+    padding-bottom: 3rem;
+    min-height: 350px;
+}
+
+.footer-area {
+    margin: 0 auto;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    gap:1rem;
+}
+.footer-area h4 {
+    font-family: 'Londrina Solid', cursive;
+    font-weight: 700;
+    font-size: 2rem;
+    margin:0;
+}
+.footer-headers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-headers span{
+    font-size: 1.3rem;
+    color:white;
+    font-weight: 400;
+}
+.contact{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:1rem;
+}
+
+.flex-center-footer{
+    display: flex;
+    align-items: center;
+    gap:1rem;
+}
+
+.location{
+    margin-left: 0;
+    line-height: 1.5;
+}
+.location p{
+    margin: 0;
+}
+.mailto{
+    margin-left: 0;
+}
+.mailto a{
+    text-decoration: none;
+    color:white;
+}
+.phone{
+    margin-left: 0;
+}
+.phone a{
+    text-decoration: none;
+    color:white;
+}
+
+.short-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:1rem;
+}
+
+.short-links a{
+    text-decoration: none;
+    color:white;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.instagram-imgs {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+.instagram-imgs img{
+    border-radius: 10px;
+}
+.instagram-imgs .row-1{
+    display: flex;
+    gap:0.5rem;
+}
+.instagram-imgs .row-2{
+    display: flex;
+    gap:0.5rem;
+}
+.footer hr{
+    margin: 1rem auto;
+    width: 99%;
+}
+.footer-end-line{
+    margin:0 auto;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-end-line img{
+    width: 16px;
+    height: 16px;
+}

@@ -1,10 +1,22 @@
-/*Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2*/
+/*Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #FAF7F2 */
 /*
 font-family: 'Barlow', sans-serif;
 font-family: 'Londrina Solid', cursive;
 font-family: 'Quattrocento', serif;
 font-family: 'Satisfy', cursive;
 */
+
+
+.home {
+    color: #ffffff;
+    background-image: url('../../Assets/mvp-banner.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    min-height: 100vh;
+    
+}
 
 .home h1 {
     margin-top: 0;
@@ -13,35 +25,59 @@ font-family: 'Satisfy', cursive;
     font-family: 'Londrina Solid', cursive;
 }
 
+.home h3 {
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-family: 'Satisfy', cursive;
+    color: #FDC913;
+}
+
 .home h2 {
+    margin-top: 0;
     font-size: 3rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 100;
     letter-spacing: -1px;
-    line-height: 1.5;
+    line-height: 1.25;
 }
 
-.home .yellow-bg {
+.orderPage-button {
+    margin-top: 2rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    border-radius: 15px;
+    height: 3rem;
+    width: 10rem;
     background: #FDC913;
     border-width: 0;
 }
 
-.home {
-    background-color: #CE2829;
-    background-image: url('../../Assets/mvp-banner-empty.png');
-    background-position: center;
-    text-align: center;
-    min-height: 100vh;
-    color: #ffffff;
+.nav-container {
+    width: 80%;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    margin: 0 auto;
 }
 
-.orderPage-button {
-    font-family: 'Barlow', sans-serif;
-    border-radius: 15px;
-    height: 2rem;
-    width: 10rem;
+.nav-container a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Quattrocento', serif;
+    font-weight: 400;
 }
 
-.image-container {
-    margin: 0;
+.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
+
+.nav-link img {
+    width: 32px;
+    height: 32px;
+}
+
+

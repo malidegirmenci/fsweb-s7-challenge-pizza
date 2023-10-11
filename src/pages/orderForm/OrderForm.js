@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 
 import * as Yup from "yup";
 import axios from "axios";
+import Header from "../../layout/Header";
 
-import Product from "./components/Product";
 import { ExtraOptionsData } from "../../data/ExtraOptionsData";
-
+import Footer from "../../layout/Footer";
 import "./OrderForm.css";
 
 //YUP SCHEMA
@@ -73,7 +73,6 @@ export default function OrderForm(props) {
 
     // Checkbox listener and data transfer to formData
     const handleExtraOptionsChange = (e) => {
-  
         const option = e.target.value;
 
         if (extraOptions.includes(option)) {
@@ -81,11 +80,6 @@ export default function OrderForm(props) {
         } else {
             setExtraOptions([...extraOptions, option])
         }
-        console.log("option", option)
-        console.log("extraOptions:", extraOptions);
-      
-
-
     }
 
     //updating datas
@@ -148,33 +142,33 @@ export default function OrderForm(props) {
     }
     return (
         <div className="order-form-container ">
+            <Header dataProduct={dataProduct} />
             <div className="flex  column vw37 order-form">
-                <Product dataProduct={dataProduct} />
                 <form className="flex column gap-2" onSubmit={handleSubmit}>
                     <div className="flex row psize-pdough-area">
                         <div className="flex column gap-1">
                             <h3>Boyut Seç<span>*</span></h3>
-                            <label htmlFor="smallPizzaSize">
-                                <input id="Küçük" type="radio" value="Küçük" checked={formData.size === "Küçük"} name="size" onChange={handleChange} /> Küçük
-                            </label>
-                            <label htmlFor="midPizzaSize">
-                                <input id="Orta" type="radio" value="Orta" checked={formData.size === "Orta"} name="size" onChange={handleChange} /> Orta
-                            </label>
-                            <label htmlFor="bigPizzaSize">
-                                <input id="Büyük" type="radio" value="Büyük" checked={formData.size === "Büyük"} name="size" onChange={handleChange} /> Büyük
-                            </label>
+                            <div className="inline-flex row gap-1">
+                                <div className="radio">
+                                    <input className="radio-input" id="Küçük" type="radio" value="Küçük" checked={formData.size === "Küçük"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="Küçük">S</label>
+                                    <input className="radio-input" id="Orta" type="radio" value="Orta" checked={formData.size === "Orta"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="Orta">M</label>
+                                    <input className="radio-input" id="Büyük" type="radio" value="Büyük" checked={formData.size === "Büyük"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="Büyük">L</label>
+                                </div>
+                            </div>
                         </div>
-                        <div className="flex column gap-1 right-margin">
+                        <div className="flex column gap-1">
                             <h3>Hamur Seç<span>*</span></h3>
                             <div className="pdough">
-                                <select id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
-                                    <option value="doughThickness" selected> Hamur Kalınlığı</option>
+                                <select className="select" id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
+                                    <option value="doughThickness" disabled selected>--Hamur Kalınlığı Seç--</option>
                                     <option selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
                                     <option selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
                                     <option selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
                                 </select>
                             </div>
-
                         </div>
                     </div>
                     <div className="flex column">
@@ -183,27 +177,29 @@ export default function OrderForm(props) {
                         <div className="flex extra-options">
                             {ExtraOptionsData.map((option, index) => {
                                 return (
-                                    <label key={index} className="option">
-                                        <input type="checkbox" value={option} onChange={handleExtraOptionsChange} name="extraOptions" /> {option}
-                                    </label>
+                                    <div className="checkbox-area">
+                                        <label key={index} className="checkbox" htmlFor={`myCheckboxId${index}`}>
+                                            <input className="checkbox-input" type="checkbox" value={option} onChange={handleExtraOptionsChange} name="extraOptions" id={`myCheckboxId${index}`} />
+                                            <div className="checkbox-box"></div>
+                                            {option}
+                                        </label>
+                                    </div>
                                 )
                             })}
                         </div>
                     </div>
                     <div className="flex column order-note">
                         <h3>Sipariş Notu</h3>
-                        <label>
-                            <input type="text" placeholder="Siparişine eklemek istediğin bir not var mı?" name="orderNote" onChange={handleChange}></input>
-                        </label>
+                        <input className="bg-color-light-non-border order-note-input" type="text" placeholder="Siparişine eklemek istediğin bir not var mı?" name="orderNote" onChange={handleChange}></input>
                     </div>
                     <hr></hr>
                     <div className="flex row gap-2 ">
                         <div className="flex row order-amount">
-                            <button className=" yellow-bg decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
-                            <div className="amount">
+                            <button className="bg-color-light-non-border decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
+                            <div className="bg-color-light-non-border amount">
                                 <p>{counterAmount}</p>
                             </div>
-                            <button className=" yellow-bg increase" type="button" onClick={handleIncrease}>+</button>
+                            <button className="bg-color-light-non-border increase" type="button" onClick={handleIncrease}>+</button>
                         </div>
                         <div className="flex column order-submit-area">
                             <div className="flex column order-summary-area">
@@ -217,15 +213,14 @@ export default function OrderForm(props) {
                                     <p>{totalPrice}₺</p>
                                 </div>
                             </div>
-                            <div className="order-button">
-                                <button className="yellow-bg " type="submit" disabled={!isValid} >SİPARİŞ VER</button>
+                            <div className=" submit-order-button">
+                                <button className="yellow-bg-non-border " type="submit" disabled={!isValid} >SİPARİŞ VER</button>
                             </div >
                         </div>
                     </div>
                 </form>
             </div>
-            <div className="footer">
-            </div>
+            <Footer />
         </div>
     )
 }

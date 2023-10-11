@@ -6,14 +6,12 @@
     display: flex;
 }
 
-.opacity{
-    color:rgb(0, 0, 0, 0.5);
-}
-
 .price-rate-amount-area{
     align-items: center;
 }
 
 .rate-comment p{
-    color:black;
+    color:#5F5F5F
 }
+
+

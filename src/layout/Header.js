@@ -1,21 +1,33 @@
 import React from "react";
-import './Header.css';
 import { Link, useHistory } from "react-router-dom";
+
+import Product from "../pages/orderForm/components/Product";
+import './Header.css';
+
+import img1 from '../Assets/adv-aseets/adv-form-banner.png';
+
 export default function Header(props) {
+    
     const history = useHistory();
+    const { dataProduct } = props;
+
     const goToHome = () => {
         history.push("/");
     }
     return (
-        <div className="center header-container ">
+        <div className="header-area">
             <header>
                 <h1 onClick={goToHome}>Teknolojik Yemekler</h1>
-                <nav className="center vw37 navigation-links ">
+            </header>
+            <div className="vw37 product-nav-area">
+                <img src={img1} alt="adv-banner" />
+                <nav className="navigation-links">
                     <Link to="/">Anasayfa - </Link>
                     <Link to="/">Seçenekler - </Link>
-                    <Link to="/order"><b>Sipariş Oluştur</b></Link>
+                    <Link to="/order"><span><b>Sipariş Oluştur</b></span></Link>
                 </nav>
-            </header>
+                <Product dataProduct={dataProduct} />
+            </div>
         </div>
     )
 }

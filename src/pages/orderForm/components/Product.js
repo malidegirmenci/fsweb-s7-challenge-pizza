@@ -11,12 +11,12 @@ export default function Product(props) {
                 <div className="price">
                     <p>{dataProduct.price.toFixed(2)}₺</p>
                 </div>
-                <div className="flex opacity rate-comment">
+                <div className="flex rate-comment">
                     <p>{dataProduct.rate}</p>
                     <p>({dataProduct.comment})</p>
                 </div>
             </div>
-            <div className="opacity description">
+            <div className="description">
                 <p>{dataProduct.description}</p>
             </div>
         </>
