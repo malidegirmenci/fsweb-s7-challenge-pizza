@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import Product from "../pages/orderForm/components/Product";
+import Product from "../components/Product";
 import './Header.css';
 
 import img1 from '../Assets/adv-aseets/adv-form-banner.png';

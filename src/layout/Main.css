@@ -48,10 +48,12 @@
     font-size: 4rem;
     line-height: 1.2;
     font-weight: 700;
+    margin:0;
 }
 
 .popular-product h3 {
     font-size: 1.1rem;
+    margin:0;
 }
 
 .popular-menu {
@@ -74,6 +76,7 @@
     color: white;
     font-size: 2rem;
     line-height: 1.1;
+    margin:0;
 }
 
 .carrier-commercial {
@@ -95,6 +98,7 @@
 .carrier-commercial h3 {
     font-size: 2rem;
     line-height: 1.1;
+    margin:0;
 }
 
 .carrier-commercial span {
@@ -125,12 +129,16 @@
     font-family: 'Satisfy', cursive;
     font-size: 2rem;
     font-weight: 400;
+    margin:0;
+    
 }
 
 .popular-foods-area h3 {
     font-family: 'Barlow', sans-serif;
     font-size: 3rem;
     font-weight: 700;
+    margin:0;
+    text-align: center;
 }
 
 .popular-foods-nav {
@@ -183,6 +191,7 @@
 .food h4 {
     font-size: 1.1rem;
     font-weight: 700;
+    margin:0;
 }
 
 .food-footer {
@@ -192,7 +201,11 @@
     font-weight: 700;
 }
 
-.opacity {
-    font-size: 0.8rem;
-    color: rgb(0, 0, 0, 0.5);
+.food-footer p{
+    color:#5F5F5F;
+    margin:0;
+}
+
+.food-footer span{
+    color:black;
 }

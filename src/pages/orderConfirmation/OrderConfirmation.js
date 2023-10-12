@@ -1,23 +1,10 @@
-import React, { useState } from "react";
-
+import React from "react";
+import {RiseLoader} from "react-spinners"
 import './OrderConfirmation.css';
 
 export default function OrderConfirmation(props) {
     const { order } = props;
-    console.log("confirmPAge",order)
-    console.log("type:",typeof order["extraOptions"]);
-    console.log("extraOptions",order["extraOptions"]);
-    /*
-    const fakeData = {
-        title: "Position Absolute Acı Pizza",
-        size: "Büyük",
-        dough: "Kalın",
-        extraOptions: ["Peperoni", "Sosis", "Mısır", "Ananas", "Jalepeno"],
-        extraOptionsPrice: 123,
-        totalPrice: 1231
-    }
-    console.log("fakeData type: ", typeof fakeData, "value", fakeData)
-    */
+    if(!order) return
     return (
         <div className="order-confirmation-container">
             <div className="flex column vw37 order-confirmation">
@@ -25,7 +12,8 @@ export default function OrderConfirmation(props) {
                 <h2 className="onTheWayMsg">Lezzetin yolda</h2>
                 <h2 className="takenOrder">SİPARİŞ ALINDI!</h2>
                 <hr className="vw37" />
-                <div className="flex column order-summary">
+                {
+                    !order ? <RiseLoader color="white"></RiseLoader> : <div className="flex column order-summary">
                     <h3>{order.title}</h3>
                     <div className="pizza-info">
                         <p>Boyut: <b>{order.size}</b></p>
@@ -46,6 +34,7 @@ export default function OrderConfirmation(props) {
                         </div>
                     </div>
                 </div>
+                }
                 <div className="footer"></div>
             </div>
         </div>

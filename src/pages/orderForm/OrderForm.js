@@ -14,7 +14,7 @@ import "./OrderForm.css";
 const formSchema = Yup.object().shape({
     size: Yup
         .string()
-        .oneOf(["Küçük", "Orta", "Büyük"], "Bir pizza boyu seçmelisiniz.")
+        .oneOf(["S", "M", "L"], "Bir pizza boyu seçmelisiniz.")
         .required("Pizza boyu seçimi gereklidir."),
     dough: Yup
         .string()
@@ -150,12 +150,12 @@ export default function OrderForm(props) {
                             <h3>Boyut Seç<span>*</span></h3>
                             <div className="inline-flex row gap-1">
                                 <div className="radio">
-                                    <input className="radio-input" id="Küçük" type="radio" value="Küçük" checked={formData.size === "Küçük"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="Küçük">S</label>
-                                    <input className="radio-input" id="Orta" type="radio" value="Orta" checked={formData.size === "Orta"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="Orta">M</label>
-                                    <input className="radio-input" id="Büyük" type="radio" value="Büyük" checked={formData.size === "Büyük"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="Büyük">L</label>
+                                    <input className="radio-input" id="S" type="radio" value="S" checked={formData.size === "S"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="S">S</label>
+                                    <input className="radio-input" id="M" type="radio" value="M" checked={formData.size === "M"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="M">M</label>
+                                    <input className="radio-input" id="L" type="radio" value="L" checked={formData.size === "L"} name="size" onChange={handleChange} />
+                                    <label className="radio-label" htmlFor="L">L</label>
                                 </div>
                             </div>
                         </div>
