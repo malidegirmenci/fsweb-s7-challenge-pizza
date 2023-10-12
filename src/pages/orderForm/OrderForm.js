@@ -4,9 +4,11 @@ import { useHistory } from "react-router-dom";
 
 import * as Yup from "yup";
 import axios from "axios";
-import Header from "../../layout/Header";
+
 
 import { ExtraOptionsData } from "../../data/ExtraOptionsData";
+
+import Header from "./components/Header";
 import Footer from "../../layout/Footer";
 import "./OrderForm.css";
 
@@ -25,7 +27,10 @@ const formSchema = Yup.object().shape({
 })
 
 export default function OrderForm(props) {
-    const { dataProduct, handleOrder } = props;
+
+     //Sayfanın başına getirir
+
+    const { productData, handleOrder } = props;
     let history = useHistory();
     //yup validation
     const [isValid, setIsValid] = useState(false);
@@ -81,12 +86,15 @@ export default function OrderForm(props) {
             setExtraOptions([...extraOptions, option])
         }
     }
-
+    //first load begin top
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
     //updating datas
 
     useEffect(() => {
         setExtraOptionsPrice((extraOptions.length * optionPrice) * counterAmount);
-        setTotalPrice((dataProduct.price.toFixed(2) * counterAmount) + extraOptionsPrice);
+        setTotalPrice((productData.price.toFixed(2) * counterAmount) + extraOptionsPrice);
         setFormData({
             ...formData, extraOptions: extraOptions,
             extraOptionsPrice: extraOptionsPrice,
@@ -100,7 +108,7 @@ export default function OrderForm(props) {
         const { value, name } = e.target
         const newFormData = {
             ...formData,
-            ...dataProduct,
+            ...productData,
             amount: counterAmount,
             [name]: value
         };
@@ -142,7 +150,7 @@ export default function OrderForm(props) {
     }
     return (
         <div className="order-form-container ">
-            <Header dataProduct={dataProduct} />
+            <Header productData={productData} />
             <div className="flex  column vw37 order-form">
                 <form className="flex column gap-2" onSubmit={handleSubmit}>
                     <div className="flex row psize-pdough-area">

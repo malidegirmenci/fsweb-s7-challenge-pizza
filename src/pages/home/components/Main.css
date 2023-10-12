@@ -36,7 +36,7 @@
     align-items: flex-start;
     padding-left: 3rem;
     padding-top: 3rem;
-    background-image: url('../Assets/adv-aseets/kart-1.png');
+    background-image: url('../../../Assets/adv-aseets/kart-1.png');
     background-repeat: no-repeat;
     background-position: 100%;
     background-size: cover;
@@ -65,7 +65,7 @@
     align-items: flex-start;
     padding-left: 1rem;
     padding-top: 1rem;
-    background-image: url('../Assets/adv-aseets/kart-2.png');
+    background-image: url('../../../Assets/adv-aseets/kart-2.png');
     background-repeat: no-repeat;
     background-position: 100%;
     background-size: cover;
@@ -88,7 +88,7 @@
     align-items: flex-start;
     padding-left: 1rem;
     padding-top: 1rem;
-    background-image: url('../Assets/adv-aseets/kart-3.png');
+    background-image: url('../../../Assets/adv-aseets/kart-3.png');
     background-repeat: no-repeat;
     background-position: 100%;
     background-size: cover;
@@ -186,6 +186,7 @@
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .food h4 {

@@ -11,13 +11,15 @@ import img6 from '../../Assets/adv-aseets/icons/6.svg'
 
 
 import Footer from '../../layout/Footer';
-import Main from '../../layout/Main';
+import Main from './components/Main';
 
 import './Home.css'
 
-export default function Home() {
+export default function Home(props) {
+    const {productData} = props;
     let history = useHistory();
-    const handleClick = () => {
+
+    const handleOrder = () => {
         history.push("/order");
     }
     return (
@@ -27,7 +29,7 @@ export default function Home() {
                     <h1>Teknolojik Yemekler</h1>
                     <h3>fırsatı kaçırma</h3>
                     <h2>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h2>
-                    <button className='orderPage-button' onClick={handleClick}>ACIKTIM</button>
+                    <button className='orderPage-button' onClick={handleOrder}>ACIKTIM</button>
                 </header>
             </div>
             <nav className='nav-container'>
@@ -50,7 +52,7 @@ export default function Home() {
                     <img src={img6} alt='Gazlı İçeçekler' />Gazlı İçecek
                 </Link>
             </nav>
-            <Main/>
+            <Main handleOrder={handleOrder} productData = {productData}/>
             <Footer/>
         </div>
     )

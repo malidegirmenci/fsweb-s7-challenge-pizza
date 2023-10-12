@@ -1,15 +1,15 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import Product from "../components/Product";
+import Product from "../../../components/Product";
 import './Header.css';
 
-import img1 from '../Assets/adv-aseets/adv-form-banner.png';
+import img1 from '../../../Assets/adv-aseets/adv-form-banner.png';
 
 export default function Header(props) {
     
     const history = useHistory();
-    const { dataProduct } = props;
+    const { productData } = props;
 
     const goToHome = () => {
         history.push("/");
@@ -26,7 +26,7 @@ export default function Header(props) {
                     <Link to="/">Seçenekler - </Link>
                     <Link to="/order"><span><b>Sipariş Oluştur</b></span></Link>
                 </nav>
-                <Product dataProduct={dataProduct} />
+                <Product productData={productData} />
             </div>
         </div>
     )

@@ -5,8 +5,8 @@ import img3 from '../Assets/adv-aseets/food-3.png'
 export const productData = [
     {
         id: 0,
-        title: "Position Absolute Acı Pizza",
-        price: 85.50,
+        title: "Terminal Pizza",
+        price: 60,
         description: "Terminallerde çok bekliyorsan bu peynir bombası pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizatta denir.",
         rate: "4.9",
         comment: 200,

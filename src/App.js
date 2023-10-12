@@ -11,7 +11,6 @@ import { useEffect } from "react";
 
 const App = () => {
   const [order, setOrder] = useState({});
-  const product = productData[0]
 
   const handleOrder = (order) => {
     setOrder(order);
@@ -25,10 +24,10 @@ const App = () => {
     <div className="app">
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home productData = {productData}/>
         </Route>
         <Route exact path="/order">
-          <OrderForm dataProduct={product} handleOrder={handleOrder} />
+          <OrderForm productData={productData[0]} handleOrder={handleOrder} />
         </Route>
         <Route exact path="/order/confirmedOrder">
           <OrderConfirmation order={order} />

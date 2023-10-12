@@ -1,18 +1,17 @@
 import React from "react"
 
-import img1 from '../Assets/adv-aseets/icons/1.svg'
-import img2 from '../Assets/adv-aseets/icons/2.svg'
-import img3 from '../Assets/adv-aseets/icons/3.svg'
-import img4 from '../Assets/adv-aseets/icons/4.svg'
-import img5 from '../Assets/adv-aseets/icons/5.svg'
-import img6 from '../Assets/adv-aseets/icons/6.svg'
+import img1 from '../../../Assets/adv-aseets/icons/1.svg'
+import img2 from '../../../Assets/adv-aseets/icons/2.svg'
+import img3 from '../../../Assets/adv-aseets/icons/3.svg'
+import img4 from '../../../Assets/adv-aseets/icons/4.svg'
+import img5 from '../../../Assets/adv-aseets/icons/5.svg'
+import img6 from '../../../Assets/adv-aseets/icons/6.svg'
 
-import ProductCard from "../components/ProductCard"
-
-import { productData } from "../data/ProductData"
+import ProductCard from "../../../components/ProductCard"
 
 import './Main.css'
-export default function Main() {
+export default function Main(props) {
+    const {handleOrder, productData} = props;
     return (
         <div className='main-content'>
             <div className='headline'>
@@ -20,7 +19,7 @@ export default function Main() {
                     <div className='popular-product'>
                         <h2>Özel <br />Lezzetus</h2>
                         <h3>Position:Absolute Acı Burger</h3>
-                        <button className='order-button'>SİPARİŞ VER</button>
+                        <button className='order-button' onClick={handleOrder}>SİPARİŞ VER</button>
                     </div>
                 </div>
                 <div className='headline-area-2'>
@@ -63,7 +62,7 @@ export default function Main() {
                     {
                         productData.map((item, index) => {
                             return(
-                                <ProductCard item={item} key={index}/>
+                                <ProductCard item={item} key={index} handleOrder={handleOrder}/>
                             )
                         })
                     }
