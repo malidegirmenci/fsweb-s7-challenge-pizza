@@ -1,10 +1,10 @@
 import React from "react"
 
 export default function ProductCard(props) {
-    const {item, handleOrder} = props
+    const {item, selectedProduct} = props
     return (
-        <div className='food' onClick={handleOrder}>
-            <img src={item.image} alt='' />
+        <div className='food' onClick={() => selectedProduct(item)}>
+            <img src={item.image} alt={item.title} />
             <h4>{item.title}</h4>
             <div className='food-footer'>
                 <p>{item.rate}</p>

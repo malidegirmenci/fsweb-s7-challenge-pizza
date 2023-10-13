@@ -1,14 +1,8 @@
 import React from 'react'
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 /* IMAGES */
-import img1 from '../../Assets/adv-aseets/icons/1.svg'
-import img2 from '../../Assets/adv-aseets/icons/2.svg'
-import img3 from '../../Assets/adv-aseets/icons/3.svg'
-import img4 from '../../Assets/adv-aseets/icons/4.svg'
-import img5 from '../../Assets/adv-aseets/icons/5.svg'
-import img6 from '../../Assets/adv-aseets/icons/6.svg'
-
+import { Icons } from '../../data/Icons';
 
 import Footer from '../../layout/Footer';
 import Main from './components/Main';
@@ -16,11 +10,11 @@ import Main from './components/Main';
 import './Home.css'
 
 export default function Home(props) {
-    const {productData} = props;
-    let history = useHistory();
+    const {productData, selectedProduct} = props;
 
-    const handleOrder = () => {
-        history.push("/order");
+    const goToFoodArea = () => {
+        const goToFoodNav = document.getElementById("foodNav");
+        goToFoodNav.scrollIntoView({behavior:"smooth"})
     }
     return (
         <div className='container'>
@@ -29,30 +23,30 @@ export default function Home(props) {
                     <h1>Teknolojik Yemekler</h1>
                     <h3>fırsatı kaçırma</h3>
                     <h2>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h2>
-                    <button className='orderPage-button' onClick={handleOrder}>ACIKTIM</button>
+                    <button className='orderPage-button' onClick={goToFoodArea}>ACIKTIM</button>
                 </header>
             </div>
-            <nav className='nav-container'>
+            <nav id = "foodNav" className='nav-container'>
                 <Link className="nav-link">
-                    <img src={img1} alt='Kore Yemeği' /> YENİ! Kore
+                    <img src={Icons.Ramen} alt='Kore Yemeği' /> YENİ! Kore
                 </Link>
                 <Link className="nav-link">
-                    <img src={img2} alt='Pizza' /> Pizza
+                    <img src={Icons.Pizza} alt='Pizza' /> Pizza
                 </Link >
                 <Link className="nav-link">
-                    <img src={img3} alt='Burger' /> Burger
+                    <img src={Icons.Burger} alt='Burger' /> Burger
                 </Link >
                 <Link className="nav-link">
-                    <img src={img4} alt='Kızartmalar' /> Kızartmalar
+                    <img src={Icons['French fries']} alt='Kızartmalar' /> Kızartmalar
                 </Link>
                 <Link className="nav-link">
-                    <img src={img5} alt='Fast food' /> Fast food
+                    <img src={Icons['Fast food']} alt='Fast food' /> Fast food
                 </Link>
                 <Link className="nav-link">
-                    <img src={img6} alt='Gazlı İçeçekler' />Gazlı İçecek
+                    <img src={Icons['Soft drinks']} alt='Gazlı İçeçekler' />Gazlı İçecek
                 </Link>
             </nav>
-            <Main handleOrder={handleOrder} productData = {productData}/>
+            <Main productData = {productData} selectedProduct={selectedProduct}/>
             <Footer/>
         </div>
     )

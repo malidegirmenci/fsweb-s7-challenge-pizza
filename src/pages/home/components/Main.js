@@ -1,17 +1,13 @@
 import React from "react"
 
-import img1 from '../../../Assets/adv-aseets/icons/1.svg'
-import img2 from '../../../Assets/adv-aseets/icons/2.svg'
-import img3 from '../../../Assets/adv-aseets/icons/3.svg'
-import img4 from '../../../Assets/adv-aseets/icons/4.svg'
-import img5 from '../../../Assets/adv-aseets/icons/5.svg'
-import img6 from '../../../Assets/adv-aseets/icons/6.svg'
+import { Icons } from "../../../data/Icons";
 
 import ProductCard from "../../../components/ProductCard"
 
 import './Main.css'
 export default function Main(props) {
-    const {handleOrder, productData} = props;
+    const { productData, selectedProduct} = props;
+    console.log("Main",productData)
     return (
         <div className='main-content'>
             <div className='headline'>
@@ -19,7 +15,7 @@ export default function Main(props) {
                     <div className='popular-product'>
                         <h2>Özel <br />Lezzetus</h2>
                         <h3>Position:Absolute Acı Burger</h3>
-                        <button className='order-button' onClick={handleOrder}>SİPARİŞ VER</button>
+                        <button className='order-button' onClick={() => selectedProduct(productData[1])}>SİPARİŞ VER</button>
                     </div>
                 </div>
                 <div className='headline-area-2'>
@@ -40,29 +36,29 @@ export default function Main(props) {
                 </div>
                 <div className='popular-foods-nav'>
                     <button className="nav-button-container">
-                        <img src={img1} alt='Ramen' /> Ramen
+                        <img src={Icons.Ramen} alt='Ramen' /> Ramen
                     </button>
                     <button className="nav-button-container active">
-                        <img src={img2} alt='Pizza' /> Pizza
+                        <img src={Icons.Pizza} alt='Pizza' /> Pizza
                     </button>
                     <button className="nav-button-container">
-                        <img src={img3} alt='Burger' /> Burger
+                        <img src={Icons.Burger} alt='Burger' /> Burger
                     </button>
                     <button className="nav-button-container">
-                        <img src={img4} alt='French fries' /> French fries
+                        <img src={Icons["French fries"]} alt='French fries' /> French fries
                     </button>
                     <button className="nav-button-container">
-                        <img src={img5} alt=',Fast food' /> Fast food
+                        <img src={Icons["Fast food"]} alt='Fast food' /> Fast food
                     </button>
                     <button className="nav-button-container">
-                        <img src={img6} alt='Soft drinks' /> Soft drinks
+                        <img src={Icons["Soft drinks"]} alt='Soft drinks' /> Soft drinks
                     </button>
                 </div>
                 <div className='foods'>
                     {
                         productData.map((item, index) => {
                             return(
-                                <ProductCard item={item} key={index} handleOrder={handleOrder}/>
+                                <ProductCard item={item} key={index} selectedProduct={selectedProduct} />
                             )
                         })
                     }

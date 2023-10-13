@@ -28,8 +28,6 @@ const formSchema = Yup.object().shape({
 
 export default function OrderForm(props) {
 
-     //Sayfanın başına getirir
-
     const { productData, handleOrder } = props;
     let history = useHistory();
     //yup validation

@@ -9,10 +9,11 @@ font-family: 'Satisfy', cursive;
 
 .home {
     color: #ffffff;
+    background-color: #CE2829;
     background-image: url('../../Assets/mvp-banner.png');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: bottom;
+    background-size: 100%;
     text-align: center;
     min-height: 100vh;
     
@@ -42,7 +43,6 @@ font-family: 'Satisfy', cursive;
 }
 
 .orderPage-button {
-    margin-top: 2rem;
     font-family: 'Barlow', sans-serif;
     font-weight: 700;
     border-radius: 15px;
