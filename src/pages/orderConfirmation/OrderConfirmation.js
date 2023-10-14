@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { RiseLoader } from "react-spinners"
 import './OrderConfirmation.css';
 
@@ -14,29 +14,29 @@ export default function OrderConfirmation(props) {
     }
     if (!order) return
     return (
-        <div className="order-confirmation-container">
-            <div className="flex column vw37 order-confirmation">
-                <h1 onClick={goToHome}>Teknolojik Yemekler</h1>
-                <h2 className="onTheWayMsg">Lezzetin yolda</h2>
-                <h2 className="takenOrder">SİPARİŞ ALINDI!</h2>
-                <hr className="vw37" />
+        <div className="bg-color-red color-white order-confirmation-container">
+            <div className="flex column vw37 margin-0-auto align-items-center">
+                <h1 className="cursor-pointer font-Londrina" onClick={goToHome}>Teknolojik Yemekler</h1>
+                <h2 className="font-Satisfy color-yellow onTheWayMsg">Lezzetin yolda</h2>
+                <h2 className="font-Barlow takenOrder">SİPARİŞ ALINDI!</h2>
+                <hr className="vw37 color-white" />
                 {
                     !order ? <RiseLoader color="white"></RiseLoader> :
                         <div className="flex column order-summary">
                             <h3>{order.title}</h3>
-                            <div className="pizza-info">
+                            <div className="pizza-info ">
                                 <p>Boyut: <b>{order.size}</b></p>
                                 <p>Hamur: <b>{order.dough}</b></p>
                                 <p>Ek Malzemeler: <b>{order.extraOptions && order.extraOptions.join(", ")}</b></p>
                             </div>
-                            <div className="bill">
-                                <h3>Sipariş Toplamı</h3>
-                                <div className="price-area">
-                                    <div className="flex flex-center price-options">
+                            <div className="text-align-center bill">
+                                <h3 className="text-align-center">Sipariş Toplamı</h3>
+                                <div className="price-area ">
+                                    <div className="flex text-align-center justify-content-space-b price-options">
                                         <h4>Seçimler</h4>
                                         <p>{order.extraOptionsPrice}₺</p>
                                     </div>
-                                    <div className="flex flex-center price-total">
+                                    <div className="flex  text-align-center justify-content-space-b price-total">
                                         <h4>Toplam</h4>
                                         <p>{order.totalPrice}₺</p>
                                     </div>
@@ -44,7 +44,6 @@ export default function OrderConfirmation(props) {
                             </div>
                         </div>
                 }
-                <div className="footer"></div>
             </div>
         </div>
     )

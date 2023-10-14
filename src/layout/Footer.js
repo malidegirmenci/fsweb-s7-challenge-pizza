@@ -1,12 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Images } from '../data/Images';
 
-import img10 from '../Assets/adv-aseets/icons/icon-1.png'
-import img11 from '../Assets/adv-aseets/icons/icon-2.png'
-import img12 from '../Assets/adv-aseets/icons/icon-3.png'
-
-import img19 from '../Assets/adv-aseets/icons/twitter.png'
-import { InstagramImgs } from '../data/InstagramImgs';
 import './Footer.css';
 
 export default function Footer() {
@@ -18,15 +13,15 @@ export default function Footer() {
                     <h4>Teknolojik<br />Yemekler</h4>
                     <address className='contact'>
                         <div className='flex-center-footer location'>
-                            <img src={img10} alt="location icon" />
+                            <img src={Images.icons.Location} alt="location icon" />
                             <p>341 Londonderry Road,<br />Istanbul, Türkiye</p>
                         </div>
                         <div className='flex-center-footer mailto'>
-                            <img src={img11} alt="mail icon" />
+                            <img src={Images.icons.Mail} alt="mail icon" />
                             <a href='mailto:aciktim@teknolojikyemekler.com'>aciktim@teknolojikyemekler.com</a>
                         </div>
                         <div className='flex-center-footer phone'>
-                            <img src={img12} alt="phone icon" />
+                            <img src={Images.icons.Phone} alt="phone icon" />
                             <a href='tel:+902161234567'>+90 216 123 45 67</a>
                         </div>
                     </address>
@@ -46,7 +41,7 @@ export default function Footer() {
                         <h4><span>Instagram</span></h4>
                         <div className='instagram-imgs'>
                             {
-                                InstagramImgs.map((item, index) => {
+                                Images.instagramImgs.map((item, index) => {
                                     return (
                                         <img src={item} alt={"instagramPhoto" + index} key={index} />
                                     )
@@ -59,7 +54,7 @@ export default function Footer() {
             <hr></hr>
             <div className='footer-end-line'>
                 <div>©2023 Teknolojik Yemekler.</div>
-                <img src={img19} alt='twitter'></img>
+                <img src={Images.icons['Social-Icons'].Twitter} alt='twitter'></img>
             </div>
         </footer>
     )

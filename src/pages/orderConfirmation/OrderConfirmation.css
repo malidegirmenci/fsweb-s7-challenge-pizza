@@ -1,62 +1,43 @@
-.order-confirmation-container{
-    background-color: #CE2829;
-    color:white;
+@import '../../hasTailwind.css';
+
+.order-confirmation-container {
     min-height: 100vh;
 }
-.order-confirmation{
-    margin:0 auto;
-    align-items: center;
-}
-.order-confirmation h1{
-    font-family: 'Londrina Solid', cursive;
-    cursor: pointer;
-}
 
-.onTheWayMsg{
-    color:#FDC913;
-    font-family: 'Satisfy', cursive;
+.onTheWayMsg {
     font-weight: 100;
     margin-bottom: 0;
 }
-.takenOrder{
-    margin-top:0;
-    margin-left:3rem;
+
+.takenOrder {
+    margin-top: 0;
+    margin-left: 3rem;
     font-size: 4rem;
-    font-family: 'Barlow', sans-serif;
     font-weight: 100;
     letter-spacing: -1px;
     line-height: 1;
 }
-.order-summary{
+
+.order-summary {
     width: 50%;
 }
-.order-summary h3{
 
+.order-summary h3 {
     text-align: left;
     font-weight: 700;
 }
 
-.pizza-info p{
+.pizza-info p {
     margin-top: 0;
     font-weight: 100;
 }
-.pizza-info{
-    margin-top:3rem;
-    margin-left: 1rem;
-    margin-bottom:3rem;
+
+.pizza-info {
+    margin: 3rem 1rem;
 }
-.bill{
+
+.bill {
     padding: 0 3rem;
-    text-align: center;
     border: 1px solid white;
     border-radius: 5px;
 }
-.bill h3{
-    text-align: center;
-}
-
-.order-confirmation hr{
-    color:white;
-}
-
-

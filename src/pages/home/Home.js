@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-/* IMAGES */
-import { Icons } from '../../data/Icons';
+import { Images } from '../../data/Images';
 
 import Footer from '../../layout/Footer';
 import Main from './components/Main';
 
 import './Home.css'
+
 
 export default function Home(props) {
     const {productData, selectedProduct} = props;
@@ -18,32 +18,32 @@ export default function Home(props) {
     }
     return (
         <div className='container'>
-            <div className="home">
+            <div className="text-align-center bg-color-red color-white home">
                 <header>
-                    <h1>Teknolojik Yemekler</h1>
-                    <h3>fırsatı kaçırma</h3>
-                    <h2>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h2>
-                    <button className='orderPage-button' onClick={goToFoodArea}>ACIKTIM</button>
+                    <h1 className='font-Londrina'>Teknolojik Yemekler</h1>
+                    <h3 className='font-Satisfy color-yellow'>fırsatı kaçırma</h3>
+                    <h2 className='font-Barlow'>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h2>
+                    <button className='font-Barlow bg-color-yellow orderPage-button' onClick={goToFoodArea}>ACIKTIM</button>
                 </header>
             </div>
-            <nav id = "foodNav" className='nav-container'>
-                <Link className="nav-link">
-                    <img src={Icons.Ramen} alt='Kore Yemeği' /> YENİ! Kore
+            <nav id = "foodNav" className='flex align-items-center gap-5 nav-container'>
+                <Link className="flex justify-content-center align-items-center gap-1 ">
+                    <img src={Images.icons.Ramen} alt='Kore Yemeği' /> YENİ! Kore
                 </Link>
-                <Link className="nav-link">
-                    <img src={Icons.Pizza} alt='Pizza' /> Pizza
+                <Link className="flex justify-content-center align-items-center gap-1">
+                    <img src={Images.icons.Pizza} alt='Pizza' /> Pizza
                 </Link >
-                <Link className="nav-link">
-                    <img src={Icons.Burger} alt='Burger' /> Burger
+                <Link className="flex justify-content-center align-items-center gap-1">
+                    <img src={Images.icons.Burger} alt='Burger' /> Burger
                 </Link >
-                <Link className="nav-link">
-                    <img src={Icons['French fries']} alt='Kızartmalar' /> Kızartmalar
+                <Link className="flex justify-content-center align-items-center gap-1">
+                    <img src={Images.icons['French fries']} alt='Kızartmalar' /> Kızartmalar
                 </Link>
-                <Link className="nav-link">
-                    <img src={Icons['Fast food']} alt='Fast food' /> Fast food
+                <Link className="flex justify-content-center align-items-center gap-1">
+                    <img src={Images.icons['Fast food']} alt='Fast food' /> Fast food
                 </Link>
-                <Link className="nav-link">
-                    <img src={Icons['Soft drinks']} alt='Gazlı İçeçekler' />Gazlı İçecek
+                <Link className="flex justify-content-center align-items-center gap-1">
+                    <img src={Images.icons['Soft drinks']} alt='Gazlı İçeçekler' />Gazlı İçecek
                 </Link>
             </nav>
             <Main productData = {productData} selectedProduct={selectedProduct}/>

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Icons } from "../../../data/Icons";
+import { Images } from "../../../data/Images";
 
 import ProductCard from "../../../components/ProductCard"
 
@@ -9,52 +9,52 @@ export default function Main(props) {
     const { productData, selectedProduct} = props;
     console.log("Main",productData)
     return (
-        <div className='main-content'>
-            <div className='headline'>
-                <div className='headline-area-1'>
-                    <div className='popular-product'>
+        <div className='margin-0-auto flex column justify-content-center align-items-center gap-5 bg-color-beige main-content'>
+            <div className=' flex gap-2 font-Quattrocento headline'>
+                <div className='flex column gap-2 flex-grow-1'>
+                    <div className='flex column gap-1 flex-grow-1 color-white align-items-flex-start justify-content-flex-start popular-product'>
                         <h2>Özel <br />Lezzetus</h2>
                         <h3>Position:Absolute Acı Burger</h3>
-                        <button className='order-button' onClick={() => selectedProduct(productData[1])}>SİPARİŞ VER</button>
+                        <button className='color-red bg-color-white font-Barlow order-button' onClick={() => selectedProduct(productData[1])}>SİPARİŞ VER</button>
                     </div>
                 </div>
-                <div className='headline-area-2'>
-                    <div className='popular-menu'>
+                <div className='flex column gap-2 flex-grow-1'>
+                    <div className='flex column gap-1 justify-content-center flex-grow-1 align-items-flex-start popular-menu'>
                         <h3>Hackathlon<br />Burger Menu</h3>
-                        <button className='order-button'>SİPARİŞ VER</button>
+                        <button className='color-red bg-color-white font-Barlow order-button'>SİPARİŞ VER</button>
                     </div>
-                    <div className='carrier-commercial'>
-                        <h3><span>Çoooook</span> hızlı<br />npm gibi kurye</h3>
-                        <button className='order-button'>SİPARİŞ VER</button>
+                    <div className='flex column gap-1 justify-content-center flex-grow-1 align-items-flex-start carrier-commercial'>
+                        <h3><span className="color-red">Çoooook</span> hızlı<br />npm gibi kurye</h3>
+                        <button className='color-red bg-color-white font-Barlow order-button'>SİPARİŞ VER</button>
                     </div>
                 </div>
             </div>
-            <div className='popular-foods-area'>
+            <div className='flex column justify-content-center align-items-center gap-2'>
                 <div>
-                    <h3><span>en çok paketlenen menüler</span></h3>
-                    <h3>Acıktıran Kodlara Doyuran Lezzetler</h3>
+                    <h3><span className="font-Satisfy color-red margin-0-auto">en çok paketlenen menüler</span></h3>
+                    <h3 className="text-align-center font-Barlow">Acıktıran Kodlara Doyuran Lezzetler</h3>
                 </div>
-                <div className='popular-foods-nav'>
-                    <button className="nav-button-container">
-                        <img src={Icons.Ramen} alt='Ramen' /> Ramen
+                <div className='flex justify-content-space-e gap-1'>
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container">
+                        <img src={Images.icons.Ramen} alt='Ramen' /> Ramen
                     </button>
-                    <button className="nav-button-container active">
-                        <img src={Icons.Pizza} alt='Pizza' /> Pizza
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container active">
+                        <img src={Images.icons.Pizza} alt='Pizza' /> Pizza
                     </button>
-                    <button className="nav-button-container">
-                        <img src={Icons.Burger} alt='Burger' /> Burger
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container">
+                        <img src={Images.icons.Burger} alt='Burger' /> Burger
                     </button>
-                    <button className="nav-button-container">
-                        <img src={Icons["French fries"]} alt='French fries' /> French fries
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container">
+                        <img src={Images.icons["French fries"]} alt='French fries' /> French fries
                     </button>
-                    <button className="nav-button-container">
-                        <img src={Icons["Fast food"]} alt='Fast food' /> Fast food
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container">
+                        <img src={Images.icons["Fast food"]} alt='Fast food' /> Fast food
                     </button>
-                    <button className="nav-button-container">
-                        <img src={Icons["Soft drinks"]} alt='Soft drinks' /> Soft drinks
+                    <button className="flex justify-content-center align-items-center gap-1 bg-color-white font-Barlow color-dark-gray nav-button-container">
+                        <img src={Images.icons["Soft drinks"]} alt='Soft drinks' /> Soft drinks
                     </button>
                 </div>
-                <div className='foods'>
+                <div className='flex gap-5'>
                     {
                         productData.map((item, index) => {
                             return(

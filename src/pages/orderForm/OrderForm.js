@@ -147,15 +147,15 @@ export default function OrderForm(props) {
         history.push("/order/confirmedOrder")
     }
     return (
-        <div className="order-form-container ">
+        <div className="flex column">
             <Header productData={productData} />
-            <div className="flex  column vw37 order-form">
+            <div className="flex column vw37 justify-content-flex-start margin-0-auto order-form">
                 <form className="flex column gap-2" onSubmit={handleSubmit}>
-                    <div className="flex row psize-pdough-area">
+                    <div className="flex row justify-content-space-b">
                         <div className="flex column gap-1">
-                            <h3>Boyut Seç<span>*</span></h3>
+                            <h3>Boyut Seç<span className="color-red">*</span></h3>
                             <div className="inline-flex row gap-1">
-                                <div className="radio">
+                                <div className="gap-1 radio">
                                     <input className="radio-input" id="S" type="radio" value="S" checked={formData.size === "S"} name="size" onChange={handleChange} />
                                     <label className="radio-label" htmlFor="S">S</label>
                                     <input className="radio-input" id="M" type="radio" value="M" checked={formData.size === "M"} name="size" onChange={handleChange} />
@@ -166,13 +166,13 @@ export default function OrderForm(props) {
                             </div>
                         </div>
                         <div className="flex column gap-1">
-                            <h3>Hamur Seç<span>*</span></h3>
+                            <h3>Hamur Seç<span className="color-red">*</span></h3>
                             <div className="pdough">
-                                <select className="select" id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
-                                    <option value="doughThickness" disabled selected>--Hamur Kalınlığı Seç--</option>
-                                    <option selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
-                                    <option selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
-                                    <option selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
+                                <select className="bg-color-light select" id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
+                                    <option className="bg-color-light" value="doughThickness" disabled selected>--Hamur Kalınlığı Seç--</option>
+                                    <option className="bg-color-light" selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
+                                    <option className="bg-color-light" selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
+                                    <option className="bg-color-light" selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
                                 </select>
                             </div>
                         </div>
@@ -180,13 +180,13 @@ export default function OrderForm(props) {
                     <div className="flex column">
                         <h3>Ek Malzemeler</h3>
                         <p>En fazla 10 malzeme seçebilirsiniz. Adet: 5₺</p>
-                        <div className="flex extra-options">
+                        <div className="flex wrap gap-1">
                             {ExtraOptionsData.map((option, index) => {
                                 return (
-                                    <div className="checkbox-area">
-                                        <label key={index} className="checkbox" htmlFor={`myCheckboxId${index}`}>
+                                    <div className="flex-basis-30">
+                                        <label key={index} className="inline-flex align-items-center cursor-pointer" htmlFor={`myCheckboxId${index}`}>
                                             <input className="checkbox-input" type="checkbox" value={option} onChange={handleExtraOptionsChange} name="extraOptions" id={`myCheckboxId${index}`} />
-                                            <div className="checkbox-box"></div>
+                                            <div className="flex align-items-center justify-content-center checkbox-box"></div>
                                             {option}
                                         </label>
                                     </div>
@@ -200,23 +200,23 @@ export default function OrderForm(props) {
                     </div>
                     <hr></hr>
                     <div className="flex row gap-2 ">
-                        <div className="flex row order-amount">
-                            <button className="bg-color-light-non-border decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
-                            <div className="bg-color-light-non-border amount">
+                        <div className="flex row justify-content-center align-items-flex-start order-amount">
+                            <button className="bg-color-beige border-width-0 flex-grow-1 decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
+                            <div className="bg-color-beige flex-grow-1 amount">
                                 <p>{counterAmount}</p>
                             </div>
-                            <button className="bg-color-light-non-border increase" type="button" onClick={handleIncrease}>+</button>
+                            <button className="bg-color-beige border-width-0 flex-grow-1 increase" type="button" onClick={handleIncrease}>+</button>
                         </div>
                         <div className="flex column order-submit-area">
                             <div className="flex column order-summary-area">
                                 <h3>Sipariş Toplamı</h3>
-                                <div className="flex row flex-center">
+                                <div className="flex row align-items-center justify-content-space-b ">
                                     <h4>Seçimler</h4>
                                     <p>{extraOptionsPrice}₺</p>
                                 </div>
-                                <div className="flex row flex-center total-price">
+                                <div className="flex row align-items-center justify-content-space-b color-red">
                                     <h4>Toplam</h4>
-                                    <p>{totalPrice}₺</p>
+                                    <p><b>{totalPrice}₺</b></p>
                                 </div>
                             </div>
                             <div className=" submit-order-button">

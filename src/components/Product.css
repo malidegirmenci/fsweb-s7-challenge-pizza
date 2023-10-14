@@ -1,17 +1,6 @@
-.space-b{
-    justify-content: space-between;
+@import '../hasTailwind.css';
+
+.description p {
+    margin-top: 0;
+    font-size: 1rem;
 }
-
-.flex{
-    display: flex;
-}
-
-.price-rate-amount-area{
-    align-items: center;
-}
-
-.rate-comment p{
-    color:#5F5F5F
-}
-
-
