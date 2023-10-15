@@ -20,7 +20,7 @@ export default function Home(props) {
         <div className='container'>
             <div className="text-align-center bg-color-red color-white home">
                 <header>
-                    <h1 className='font-Londrina'>Teknolojik Yemekler</h1>
+                    <h1 className='font-Londrina' data-cy='h1'>Teknolojik Yemekler</h1>
                     <h3 className='font-Satisfy color-yellow'>fırsatı kaçırma</h3>
                     <h2 className='font-Barlow'>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h2>
                     <button className='font-Barlow bg-color-yellow orderPage-button' onClick={goToFoodArea}>ACIKTIM</button>

@@ -64,7 +64,6 @@ export default function OrderForm(props) {
         dough: "",
         extraOptions: "",
     })
-
     const handleDecrease = () => {
         if (counterAmount > 1) {
             setCounterAmount(counterAmount - 1)
@@ -77,7 +76,7 @@ export default function OrderForm(props) {
     // Checkbox listener and data transfer to formData
     const handleExtraOptionsChange = (e) => {
         const option = e.target.value;
-
+        const name = e.target.name;
         if (extraOptions.includes(option)) {
             setExtraOptions(extraOptions.filter((item) => item !== option));
         } else {
@@ -85,9 +84,9 @@ export default function OrderForm(props) {
         }
     }
     //first load begin top
-    useEffect(()=>{
-        window.scrollTo(0,0);
-    },[])
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     //updating datas
 
     useEffect(() => {
@@ -110,7 +109,6 @@ export default function OrderForm(props) {
             amount: counterAmount,
             [name]: value
         };
-        //console.log("handleChange", newFormData, "target-name", name);
         if (name !== "orderNote") {
             Yup.reach(formSchema, name)
                 .validate(value)
@@ -121,7 +119,6 @@ export default function OrderForm(props) {
                     setErrors({ ...errors, [name]: err.errors[0] })
                 });
         }
-        console.log("name:", name, "value:", value);
         setFormData(newFormData);
     }
 
@@ -136,8 +133,6 @@ export default function OrderForm(props) {
         axios
             .post("https://reqres.in/api/users", formData)
             .then((res) => {
-                console.log("axios", formData)
-                console.log("res", res.data)
                 handleOrder(res.data);
             })
             .catch((err) => {
@@ -157,34 +152,37 @@ export default function OrderForm(props) {
                             <div className="inline-flex row gap-1">
                                 <div className="gap-1 radio">
                                     <input className="radio-input" id="S" type="radio" value="S" checked={formData.size === "S"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="S">S</label>
-                                    <input className="radio-input" id="M" type="radio" value="M" checked={formData.size === "M"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="M">M</label>
-                                    <input className="radio-input" id="L" type="radio" value="L" checked={formData.size === "L"} name="size" onChange={handleChange} />
-                                    <label className="radio-label" htmlFor="L">L</label>
+                                    <label data-cy="S" className="radio-label" htmlFor="S">S</label>
+                                    <input  className="radio-input" id="M" type="radio" value="M" checked={formData.size === "M"} name="size" onChange={handleChange} />
+                                    <label data-cy="M"className="radio-label" htmlFor="M">M</label>
+                                    <input  className="radio-input" id="L" type="radio" value="L" checked={formData.size === "L"} name="size" onChange={handleChange} />
+                                    <label data-cy="L" className="radio-label" htmlFor="L">L</label>
                                 </div>
                             </div>
                         </div>
                         <div className="flex column gap-1">
                             <h3>Hamur Seç<span className="color-red">*</span></h3>
                             <div className="pdough">
-                                <select className="bg-color-light select" id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
-                                    <option className="bg-color-light" value="doughThickness" disabled selected>--Hamur Kalınlığı Seç--</option>
-                                    <option className="bg-color-light" selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
-                                    <option className="bg-color-light" selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
-                                    <option className="bg-color-light" selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
+                                <select data-cy = "dough" className="bg-color-light select" id="dough" name="dough" defaultValue="doughThickness" onChange={handleChange}>
+                                    <option  className="bg-color-light" selected value="doughThickness" >--Hamur Kalınlığı Seç--</option>
+                                    <option  className="bg-color-light" selected={formData.dough === "İnce"} value="İnce" name="dough"> İnce</option>
+                                    <option  className="bg-color-light" selected={formData.dough === "Orta"} value="Orta" name="dough"> Orta</option>
+                                    <option  className="bg-color-light" selected={formData.dough === "Kalın"} value="Kalın" name="dough"> Kalın</option>
                                 </select>
                             </div>
                         </div>
                     </div>
+                    {
+                        (!errors.size && !errors.dough) ? <span></span> : <span className="color-red size-dough-error-msg">*Pizza boyutu ve hamuru seçmek zorunludur.</span>
+                    }
                     <div className="flex column">
                         <h3>Ek Malzemeler</h3>
                         <p>En fazla 10 malzeme seçebilirsiniz. Adet: 5₺</p>
                         <div className="flex wrap gap-1">
                             {ExtraOptionsData.map((option, index) => {
                                 return (
-                                    <div className="flex-basis-30">
-                                        <label key={index} className="inline-flex align-items-center cursor-pointer" htmlFor={`myCheckboxId${index}`}>
+                                    <div className="flex-basis-30" key={index}>
+                                        <label data-cy={`checkbox-box${index}`} className="inline-flex align-items-center cursor-pointer" htmlFor={`myCheckboxId${index}`}>
                                             <input className="checkbox-input" type="checkbox" value={option} onChange={handleExtraOptionsChange} name="extraOptions" id={`myCheckboxId${index}`} />
                                             <div className="flex align-items-center justify-content-center checkbox-box"></div>
                                             {option}
@@ -193,34 +191,37 @@ export default function OrderForm(props) {
                                 )
                             })}
                         </div>
+                        {
+                            extraOptions.length > 10 && <p className="color-red">10'dan fazla ürün seçemezsin!</p>
+                        }
                     </div>
                     <div className="flex column order-note">
                         <h3>Sipariş Notu</h3>
-                        <input className="bg-color-light-non-border order-note-input" type="text" placeholder="Siparişine eklemek istediğin bir not var mı?" name="orderNote" onChange={handleChange}></input>
+                        <input data-cy="order-note" className="bg-color-light-non-border order-note-input" type="text" placeholder="Siparişine eklemek istediğin bir not var mı?" name="orderNote" onChange={handleChange}></input>
                     </div>
                     <hr></hr>
                     <div className="flex row gap-2 ">
                         <div className="flex row justify-content-center align-items-flex-start order-amount">
-                            <button className="bg-color-beige border-width-0 flex-grow-1 decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
-                            <div className="bg-color-beige flex-grow-1 amount">
+                            <button data-cy = "decrease" className="bg-color-beige border-width-0 flex-grow-1 decrease" type="button" disabled={counterAmount === 1 ? true : false} onClick={handleDecrease}>-</button>
+                            <div data-cy = "amount" className="bg-color-beige flex-grow-1 amount">
                                 <p>{counterAmount}</p>
                             </div>
-                            <button className="bg-color-beige border-width-0 flex-grow-1 increase" type="button" onClick={handleIncrease}>+</button>
+                            <button data-cy = "increase" className="bg-color-beige border-width-0 flex-grow-1 increase" type="button" onClick={handleIncrease}>+</button>
                         </div>
                         <div className="flex column order-submit-area">
                             <div className="flex column order-summary-area">
                                 <h3>Sipariş Toplamı</h3>
                                 <div className="flex row align-items-center justify-content-space-b ">
                                     <h4>Seçimler</h4>
-                                    <p>{extraOptionsPrice}₺</p>
+                                    <p data-cy='extraOptions-price'>{extraOptionsPrice}₺</p>
                                 </div>
                                 <div className="flex row align-items-center justify-content-space-b color-red">
                                     <h4>Toplam</h4>
-                                    <p><b>{totalPrice}₺</b></p>
+                                    <p data-cy='total-price'><b>{totalPrice}₺</b></p>
                                 </div>
                             </div>
                             <div className=" submit-order-button">
-                                <button className="yellow-bg-non-border " type="submit" disabled={!isValid} >SİPARİŞ VER</button>
+                                <button data-cy='order-button' className="yellow-bg-non-border" type="submit" disabled={!isValid} >SİPARİŞ VER</button>
                             </div >
                         </div>
                     </div>

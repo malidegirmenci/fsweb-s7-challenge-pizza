@@ -15,7 +15,7 @@ export default function Main(props) {
                     <div className='flex column gap-1 flex-grow-1 color-white align-items-flex-start justify-content-flex-start popular-product'>
                         <h2>Özel <br />Lezzetus</h2>
                         <h3>Position:Absolute Acı Burger</h3>
-                        <button className='color-red bg-color-white font-Barlow order-button' onClick={() => selectedProduct(productData[1])}>SİPARİŞ VER</button>
+                        <button data-cy="goToOrderForm"className='color-red bg-color-white font-Barlow order-button' onClick={() => selectedProduct(productData[1])}>SİPARİŞ VER</button>
                     </div>
                 </div>
                 <div className='flex column gap-2 flex-grow-1'>
@@ -30,8 +30,8 @@ export default function Main(props) {
                 </div>
             </div>
             <div className='flex column justify-content-center align-items-center gap-2'>
-                <div>
-                    <h3><span className="font-Satisfy color-red margin-0-auto">en çok paketlenen menüler</span></h3>
+                <div className="mid-headers">
+                    <h3 className="text-align-center font-Satisfy color-red"><span>en çok paketlenen menüler</span></h3>
                     <h3 className="text-align-center font-Barlow">Acıktıran Kodlara Doyuran Lezzetler</h3>
                 </div>
                 <div className='flex justify-content-space-e gap-1'>

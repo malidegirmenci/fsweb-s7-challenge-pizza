@@ -169,4 +169,7 @@ select:hover {
     background-color: #FAF7F2;
     outline-color: #5F5F5F;
 }
-
+.size-dough-error-msg{
+    display: block;
+    margin:0;
+}

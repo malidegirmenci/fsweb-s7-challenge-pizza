@@ -80,16 +80,16 @@ Sarı #FDC913, Açık Gri: #5F5F5F, Koyu Gri #292929, Kırmızı #CE2829, Bej: #
 
 MVP aşamasına getirdiğiniz (minimum viable product), aşağıdaki gereksinimlerin hepsini sağlamalıdır.
 
-- [ ] Route u "/" olan ve içinde hero alanındaki buton ile forma linklenen bir anasayfa. (button, nav bar, ya da herhangi bir link kabul edilebilir ama id'si "order-pizza" olmalı)
-- [ ] Route u "/pizza" olan bir sipariş formu
-- [ ] Id'si "pizza-form" olan bir form
-- [ ] Id'si "name-input" olan bir isim inputu
-- [ ] İsim için bir doğrulama(validation) ve hata mesajı (İsim en az 2 karakter olmalıdır)
-- [ ] Pizza boyutunun seçilebileceği "size-dropdown" id'li bir dropdown
-- [ ] Malzemeler için bir checklist(checkbox) - en az 4 adet (ipucu: name attributeları farklı olsun!)
-- [ ] Özel seçimler için bir text input "special-text" id'li
-- [ ] "order-button" id'li bir "Sipariş Ver" butonu. Bu buton tıklandığında form gönderilerek girilen bilgileri içerecek bir veritabanı kaydı oluşturulacak.
-- [ ] Sipariş özeti console'a yazdırılacak.
+- [X] Route u "/" olan ve içinde hero alanındaki buton ile forma linklenen bir anasayfa. (button, nav bar, ya da herhangi bir link kabul edilebilir ama id'si "order-pizza" olmalı)
+- [X] Route u "/pizza" olan bir sipariş formu
+- [X] Id'si "pizza-form" olan bir form
+- [X] Id'si "name-input" olan bir isim inputu
+- [X] İsim için bir doğrulama(validation) ve hata mesajı (İsim en az 2 karakter olmalıdır)
+- [X] Pizza boyutunun seçilebileceği "size-dropdown" id'li bir dropdown
+- [X] Malzemeler için bir checklist(checkbox) - en az 4 adet (ipucu: name attributeları farklı olsun!)
+- [X] Özel seçimler için bir text input "special-text" id'li
+- [X] "order-button" id'li bir "Sipariş Ver" butonu. Bu buton tıklandığında form gönderilerek girilen bilgileri içerecek bir veritabanı kaydı oluşturulacak.
+- [X] Sipariş özeti console'a yazdırılacak.
 
 Not - Form'un payloadu, veri **örnek olarak** şu şekilde olabilir. **Kendiniz de bu yapıyı değiştirebilirsiniz.**
 
@@ -142,14 +142,14 @@ Zamanı verimli kullanmak için aşağıdaki sırayla geliştirme yapmanı tavsi
 
 MVP'yi bitirdikten sonra çalışmanı daha da ileri götürebilirsin. Buradaki hedefler, bu modülde öğrendiklerinizin dışında şeyler de olabilir. Yine de MVP'de bitirdiğiniz yapı üzerine inşa edilecek. Kendine bunları yapmak için mutlaka zaman tanı, sınırlarını zorla ve aşağıdaki hedeflere ulaşıp ulaşamayacağına bak:
 
-- [ ] Tasarım güncellemesi: **Sipariş** sayfasında, sipariş özetini görüntüle.
-  - [ ] Axios ile API request denemelisin.
-  - [ ] [https://reqres.in/api/users](https://reqres.in) veya benzeri ücretsiz bir mock api servisine, `axios` ile POST ile kendi datanızı atıp, gelen mock datayı arayüze basabilirsin.
-  - [ ] Sipariş POST edilirken bir ağ hatası olasılığı için kullanıcıya geribildirim verebilmelisin (örnek: İnternet'e bağlanılamadı)
-- [ ] Tasarım Güncellemesi: **Anasayfa** çok daha çeşitli tasarım öğeleriyle zenginleştir.
-- [ ] Tasarım Güncellemesi: **Sipariş** Form elemanlarını (inputlar), özel renk ve tasarım diline göre güncelle
-- [ ] Cypressle daha çok test yaz
-- [ ] Aşağıdaki görsellere göre sayfaları sırasıyla iyileştirin. Önceliklendirme .çok önemli. İlk önce sipariş, sonra Sipariş Formu, en son da Anasayfadaki diğer yardımcı görselleri ekleyebilirsiniz.
+- [X] Tasarım güncellemesi: **Sipariş** sayfasında, sipariş özetini görüntüle.
+  - [X] Axios ile API request denemelisin.
+  - [X] [https://reqres.in/api/users](https://reqres.in) veya benzeri ücretsiz bir mock api servisine, `axios` ile POST ile kendi datanızı atıp, gelen mock datayı arayüze basabilirsin.
+  - [X] Sipariş POST edilirken bir ağ hatası olasılığı için kullanıcıya geribildirim verebilmelisin (örnek: İnternet'e bağlanılamadı)
+- [X] Tasarım Güncellemesi: **Anasayfa** çok daha çeşitli tasarım öğeleriyle zenginleştir.
+- [X] Tasarım Güncellemesi: **Sipariş** Form elemanlarını (inputlar), özel renk ve tasarım diline göre güncelle
+- [X] Cypressle daha çok test yaz
+- [X] Aşağıdaki görsellere göre sayfaları sırasıyla iyileştirin. Önceliklendirme .çok önemli. İlk önce sipariş, sonra Sipariş Formu, en son da Anasayfadaki diğer yardımcı görselleri ekleyebilirsiniz.
 
 #### İleri Düzey Görev Önemli Notlar!
 

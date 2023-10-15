@@ -83,7 +83,7 @@ h3 span {
     
 }
 
-h3 {
+.mid-headers h3 {
     font-size: 3rem;
     font-weight: 700;
     margin:0;

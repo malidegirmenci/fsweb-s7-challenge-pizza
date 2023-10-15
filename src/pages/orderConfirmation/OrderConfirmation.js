@@ -16,7 +16,7 @@ export default function OrderConfirmation(props) {
     return (
         <div className="bg-color-red color-white order-confirmation-container">
             <div className="flex column vw37 margin-0-auto align-items-center">
-                <h1 className="cursor-pointer font-Londrina" onClick={goToHome}>Teknolojik Yemekler</h1>
+                <h1 data-cy = "h1" className="cursor-pointer font-Londrina" onClick={goToHome}>Teknolojik Yemekler</h1>
                 <h2 className="font-Satisfy color-yellow onTheWayMsg">Lezzetin yolda</h2>
                 <h2 className="font-Barlow takenOrder">SİPARİŞ ALINDI!</h2>
                 <hr className="vw37 color-white" />
@@ -25,20 +25,20 @@ export default function OrderConfirmation(props) {
                         <div className="flex column order-summary">
                             <h3>{order.title}</h3>
                             <div className="pizza-info ">
-                                <p>Boyut: <b>{order.size}</b></p>
-                                <p>Hamur: <b>{order.dough}</b></p>
-                                <p>Ek Malzemeler: <b>{order.extraOptions && order.extraOptions.join(", ")}</b></p>
+                                <p data-cy="size-ordered">Boyut: <b>{order.size}</b></p>
+                                <p data-cy="dough-ordered">Hamur: <b>{order.dough}</b></p>
+                                <p data-cy="extraOptions-ordered">Ek Malzemeler: <b>{order.extraOptions && order.extraOptions.join(", ")}</b></p>
                             </div>
                             <div className="text-align-center bill">
                                 <h3 className="text-align-center">Sipariş Toplamı</h3>
                                 <div className="price-area ">
                                     <div className="flex text-align-center justify-content-space-b price-options">
                                         <h4>Seçimler</h4>
-                                        <p>{order.extraOptionsPrice}₺</p>
+                                        <p data-cy="extraOptions-price">{order.extraOptionsPrice}₺</p>
                                     </div>
                                     <div className="flex  text-align-center justify-content-space-b price-total">
                                         <h4>Toplam</h4>
-                                        <p>{order.totalPrice}₺</p>
+                                        <p data-cy="total-price">{order.totalPrice}₺</p>
                                     </div>
                                 </div>
                             </div>

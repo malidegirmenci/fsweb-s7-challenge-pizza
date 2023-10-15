@@ -24,7 +24,7 @@ export default function Header(props) {
                 <nav className="navigation-links">
                     <Link to="/">Anasayfa - </Link>
                     <Link to="/">Seçenekler - </Link>
-                    <Link to="/order"><span><b>Sipariş Oluştur</b></span></Link>
+                    <Link to="/order"><span className="color-red"><b>Sipariş Oluştur</b></span></Link>
                 </nav>
                 <Product productData={productData} />
             </div>
